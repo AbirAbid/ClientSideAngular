@@ -1,0 +1,35 @@
+<p></p> <br>
+<h3>Modifier Grade Ingenieur </h3>
+  <form (ngSubmit)="onSubmit()"  #f="ngForm" class="contact3-form validate-form">
+      <div class="container">
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="user.name" disabled name="title">
+    </div>
+
+    <label for="name">Nom d'utilisateur</label>
+    <textarea rows="4" cols="50" class="form-control" #description="ngModel" required [(ngModel)]="user.username" disabled name="description"></textarea>
+   
+  <div class="form-group">
+    <label for="name">Email</label>
+    <input type="datetime" class="form-control" #startDate="ngModel" required [(ngModel)]="user.email" disabled name="startDate">
+  </div>
+
+  <div class="form-group">
+    <label for="role">Role</label>
+
+    <select   class="form-control" name="role" [(ngModel)]="user.role" #role="ngModel">
+     <option value="ROLE_INGENIEUR" disabled >Ingenieur</option>
+      <option value="ROLE_MANAGER">Project Manager</option>
+     
+    
+      
+    </select>
+    
+  </div>
+    <button type="submit" class="btn btn-info">Modifier</button>
+    <div class="alert alert-success" [hidden]="!submitted">
+        <h4> Modification effectuée avec succés!!</h4>
+       </div>
+    </div>
+  </form>

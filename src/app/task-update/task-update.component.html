@@ -1,0 +1,75 @@
+<p></p> <br>
+<h3>Modifier la Tâche </h3>
+  <form (ngSubmit)="onSubmit()"  #f="ngForm" class="contact3-form validate-form">
+      <div class="container">
+    <div class="form-group">
+      <label for="name">Titre</label>
+      <input type="text" class="form-control" id="title" required disabled [(ngModel)]="task.title" name="title">
+    </div>
+
+    <label for="name">Description</label>
+    <textarea rows="4" cols="50" class="form-control" #description="ngModel" required [(ngModel)]="task.description" name="description"></textarea>
+   
+  <div class="form-group">
+    <label for="name">Date début</label>
+    <input type="datetime" class="form-control" #startDate="ngModel" required [(ngModel)]="task.startDate" name="startDate">
+  </div>
+
+  <div class="form-group">
+    <label for="name">Date fin</label>
+    <input type="datetime" class="form-control" #endDate="ngModel" required [(ngModel)]="task.endDate" name="endDate">
+   
+  </div>
+
+   <div  *ngIf="userService.getRoleUser() === 'ROLE_MANAGER'"  class="form-group">
+      <label for="name"> Etat </label>
+
+      <select   class="form-control"  #etat="ngModel"  required [(ngModel)]="task.etat" name="etat">
+          <option value="to do">A faire </option>
+          <option value="done" disabled>Fait</option>
+            <option value="problem" disabled >Probléme</option>
+      </select>
+      
+   </div>
+
+  <div  *ngIf="userService.getRoleUser() === 'ROLE_MANAGER'"  class="form-group">
+    <label for="name"> Statut </label>
+
+    <select   class="form-control"  #statut="ngModel"  required [(ngModel)]="task.affected" name="statut">
+        <option value="true"> Affectée </option>
+        <option value="false"> Libérée </option>
+    </select>
+    
+ </div>
+ 
+   <div  *ngIf="userService.getRoleUser() === 'ROLE_INGENIEUR'"  class="form-group">
+    <label for="name"> Etat </label>
+
+    <select   class="form-control"  #etat="ngModel"  required [(ngModel)]="task.etat" name="etat">
+      <option value="to do">A faire </option>
+      <option value="done">Fait</option>
+      <option value="problem">Probléme</option>
+    </select>
+    
+ </div>
+ <div  *ngIf="userService.getRoleUser() === 'ROLE_TECHNICIEN'"  class="form-group">
+  <label for="name"> Etat </label>
+
+  <select   class="form-control"  #etat="ngModel"  required [(ngModel)]="task.etat" name="etat">
+      <option value="to do">A faire </option>
+      <option value="done">Fait</option>
+      <option value="problem">Probléme</option>
+  </select>
+  
+</div>
+
+
+<label for="name">Commentaire</label>
+<textarea rows="4" cols="50" class="form-control" #comment="ngModel" required [(ngModel)]="task.comment" name="comment"></textarea>
+  
+    <button type="submit" class="btn btn-info">Modifier</button>
+    <div class="alert alert-success" [hidden]="!submitted">
+        <h4> Modification effectuée avec succés!!</h4>
+       </div>
+    </div>
+  </form>

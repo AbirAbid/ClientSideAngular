@@ -1,0 +1,73 @@
+
+
+<nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"> <img [src]="LOGO" alt="Avatar" class="avatar"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-expanded="false" aria-label="Toggle navigation"
+     (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarTogglerDemo02">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav mr-auto">
+    
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home">Accueil</a>
+        </li>
+        
+
+            <li *ngIf="userService.getRoleUser() === 'ROLE_MANAGER'" class="nav-item">
+              <a routerLink="tasks" class="nav-link" routerLinkActive="active">Liste des tâches</a>
+            </li>
+            <li *ngIf="userService.getRoleUser() === 'ROLE_MANAGER'" class="nav-item">
+                <a routerLink="users" class="nav-link" routerLinkActive="active">Liste des utilisateurs </a>
+              </li>
+         
+            <li *ngIf="userService.getRoleUser() === 'ROLE_INGENIEUR' " class="nav-item">
+                <a routerLink="taskuser" class="nav-link" routerLinkActive="active">Mes tâches</a>
+            </li>
+            <li *ngIf="userService.getRoleUser() === 'ROLE_TECHNICIEN'" class="nav-item">
+              <a routerLink="taskuser" class="nav-link" routerLinkActive="active">Mes tâches</a>
+          </li>
+    
+            <li  class="nav-item">
+              <a class="nav-link" routerLink="auth/login" *ngIf="!userService.isAuthenticated()">Login</a>
+            </li>    
+          </ul>
+      
+     <ul class="navbar-nav ml-auto"   *ngIf="userService.isAuthenticated()">
+        <li *ngIf="userService.getRoleUser() === 'ROLE_MANAGER'" class="nav-item">
+            <p  class="nav-link" >Compte Manager</p>
+          </li>
+          <li *ngIf="userService.getRoleUser() === 'ROLE_INGENIEUR'" class="nav-item">
+              <p  class="nav-link" >Compte Ingénieur</p>
+            </li>
+            <li *ngIf="userService.getRoleUser() === 'ROLE_TECHNICIEN'" class="nav-item">
+                <p  class="nav-link" >Compte Technicien</p>
+              </li>
+          <li class="nav-item dropdown" ngbDropdown>
+              <a class="nav-link dropdown-toggle pointer " 
+                  id="navbarDropdown" 
+                  role="button" 
+                  data-toggle="dropdown" 
+                  aria-haspopup="true" 
+                  aria-expanded="false"
+                  ngbDropdownToggle >
+                  {{userService.getProfileCurrentUser().username}}
+
+                  <i class="fa fa-user"></i>
+                </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+                <a class="dropdown-item" routerLink="/account">
+                  <i class="fas fa-user"></i> Mon compte
+                </a>
+           
+                <div class="dropdown-divider"></div>
+                <a  class="dropdown-item pointer" (click)="logout()" ><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+              </div>
+            </li>
+
+           
+      </ul>  
+     
+    </div>
+    
+  </nav>

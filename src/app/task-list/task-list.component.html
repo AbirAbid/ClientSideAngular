@@ -1,0 +1,58 @@
+<div class="panel panel-primary ">
+        <div class="panel-heading">
+       <p></p><br>
+            <h1>Liste des tâches</h1>
+        </div>
+    
+        <div class="col col-xs-6 text-right">
+               <button type="button" class="btn btn-sm btn-info" (click)="addTask()"><i class="fas fa-plus"></i> Nouvelle tâche </button>
+             </div>
+        </div> <br>
+                  
+            <div class="panel-body">
+              <div *ngIf="listTasktoDisplay.length== 0" class="alert alert-info">
+                Table des tâches  vide !!!
+              </div>
+            <table *ngIf="listTasktoDisplay.length > 0"  class="table table-striped table-bordered table-list" style="margin-bottom: 50px;">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Titre </th>
+                <th>Date début</th>
+                <th> Date fin </th>
+                <th> Etat </th>
+                <th> Satut </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+           <tbody>
+              <tr *ngFor="let task of listTasktoDisplay">
+                <td>{{task.id}}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.startDate| date}}</td>
+                <td>{{task.endDate| date}}</td>
+                <td>{{task.etat}}</td>
+                <td>{{task.affected}}</td>
+                <td> 
+                 
+                  <button (click)="affectTask(task.id)" 
+                        class="btn btn-info" 
+                        style="margin-left: 10px" 
+                        [disabled]="task.affected==true"
+                        title="Affecter">
+                        <i class="fas fa-hourglass-start"></i>
+                  </button>
+                  <button (click)="updateTask(task.id)"  title="Modifier" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-edit"></i></button>
+                  <button (click)="detailTask(task.id)"class="btn btn-info" title="Détail" style="margin-left: 10px"><i class="fas fa-info-square"></i></button> 
+                  <button (click)="openConfirmationDialog(task.id)" title="Supprimer" [disabled]="task.affected==true"
+                  
+                  class="btn btn-danger" style="margin-left: 10px"> <i class="fas fa-trash-alt"></i></button>
+                </td>
+                  
+              </tr>
+            </tbody>
+                 
+          </table>
+        </div>
+      
+      

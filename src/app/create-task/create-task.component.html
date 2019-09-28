@@ -1,0 +1,84 @@
+<P></P><br>
+
+                  <div class="wrapper">
+                     <div class="container">
+                        <div class=" panel panel-border panel-info ">
+                           <div class="panel-heading">
+                              <div class="row">
+                                 <div class="col-sm-12">
+                                      <p></p><br>
+                                    <h4 class="page-title" >Nouvelle tâche</h4>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="panel">
+                           <div class="panel-body">
+                              <div class="row">
+                                 <div class="col-sm-6"></div>
+                              </div>
+       <form (ngSubmit)="f.form.valid && onSubmit() && !valideDate" #f="ngForm" class="form-vertical">
+            <div class="container">
+        <div class="form-group">
+             <label for="name">Titre</label>
+               <input type="text" class="form-control" #title="ngModel" required [(ngModel)]="task.title" name="title">
+                <div *ngIf="f.submitted && description.invalid">
+                  <div *ngIf="title.errors.required" class="alert alert-danger">Veuillez entrer le titre !</div>
+                </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="name">Description</label>
+            <textarea rows="4" cols="50" class="form-control" #description="ngModel" required [(ngModel)]="task.description" name="description"></textarea>
+               <div *ngIf="f.submitted && description.invalid">
+                  <div *ngIf="description.errors.required" class="alert alert-danger">Veuillez entrer la description !</div>
+               </div>
+        </div>
+
+            <div class="form-group">
+               <label for="name">Date debut</label>
+               <input type="date" class="form-control" #startDate="ngModel" required [(ngModel)]="task.startDate" name="startDate">
+              
+               <div *ngIf="f.submitted && startDate.invalid ">
+                  <div *ngIf="startDate.errors.required" class="alert alert-danger">Veuillez entrer la date !</div>
+               </div>
+            </div>
+
+            <div class="form-group">
+               <label for="name"> Date fin </label>
+               <input type="date" class="form-control" #endDate="ngModel" required [(ngModel)]="task.endDate" name="endDate">
+            <div *ngIf="f.submitted && endDate.invalid ">
+                     <div *ngIf="endDate.errors.required" class="alert alert-danger">Veuillez entrer la date !</div>
+            </div>
+            </div>
+         
+           
+
+   <div class="form-group">
+        <label for="name"> Etat </label>
+       <select   class="form-control"  #etat="ngModel"  [(ngModel)]="task.etat" name="etat" >
+            <option  value="to do"> A faire      </option>
+            <option  value="done" disabled> Fait </option>
+            <option  value="problem" disabled> Probléme </option>
+        
+         </select> 
+
+       
+     </div>
+     <div class="alert alert-success" *ngIf="submitted">
+         <h4> Ajout effectué avec succés!!</h4>
+     </div>
+
+     <div class="alert alert-danger" *ngIf="valideDate === true">
+            <h4> Veuillez saisir une date valide !</h4>
+     </div>
+
+     <button type="submit" class="btn btn-info btn-rounded waves-effect waves-light m-b-5"> Ajouter </button>
+     
+   </div>
+   </form>
+
+</div>
+</div>
+</div>
+

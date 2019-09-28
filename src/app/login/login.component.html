@@ -1,0 +1,43 @@
+
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{roles}}.
+</div>
+
+<ng-template #loggedOut>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+   <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      
+    <div class="imgcontainer">
+      <img [src]="LOGO" alt="Avatar" class="avatar">
+    </div>
+<div class="container">
+              <label for="username"><b>Nom d'utilisateur </b></label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required" class="alert alert-danger">Erreur ce champ est vide! </div>
+        </div>
+      
+      <label for="psw"><b>Mot de passe </b></label>
+        <input type="password"  class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="6" />
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required" class="alert alert-danger">Erreur ce champ est vide! </div>
+          <div *ngIf="password.errors.minlength" class="alert alert-danger">Password must be at least 6 characters</div>
+        </div>
+          
+      
+        <button class="btn btn-primary" type="submit">Se connecter</button>
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+          Probléme d'authentification {{errorMessage}}
+        </div>
+</div>
+      <p> Vous n'avez pas encore de compte?  <a href="signup">  Créer votre compte  >> </a></p>
+    </form>
+    
+    </div></div>
+    <hr /> 
+  
+  
+</ng-template>

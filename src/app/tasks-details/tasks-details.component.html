@@ -1,0 +1,41 @@
+
+<p></p><br>
+<h2> Les informations relatives aux tâches créées. </h2> 
+
+<hr/>
+<div *ngIf="task"   class="container">
+  <div>
+    <label><b> ID : </b></label> {{task.id}}
+  </div>
+  <div>
+    <label><b> Titre: </b></label> {{task.title}}
+  </div>
+  <div>
+    <label><b> Déscription: </b></label> {{task.description}}
+  </div>
+  <div>
+    <label><b>Date début: </b></label> {{task.startDate |date}}
+  </div>  
+  <div>
+    <label><b>Date fin : </b></label> {{task.endDate | date}}
+  </div>
+  <div>
+    <label><b> Etat: </b></label> {{task.etat}}
+  </div> 
+
+  <div>
+ 
+      <div *ngIf="task.affected==true"> <label><b> Statut: </b></label> Tâche affectée </div>
+      <div *ngIf="task.affected==false">  <label><b> Statut: </b></label> Tâche non affectée </div>
+ <div> 
+
+        
+      </div>
+     
+    </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-info">Liste des tâches</button><br>
+

@@ -1,0 +1,14 @@
+<div *ngIf="userService.isAuthenticated()">
+  <P></P>
+       <br>
+  <h5 class="text-info">Mon compte</h5>
+        <p>
+                    
+          <strong>Nom d'utilisateur :</strong> {{userService.getProfileCurrentUser().username}}<br/>
+          <strong>Poste:</strong> {{userService.getProfileCurrentUser().role[0].authority}}<br/>
+          <strong>Email:</strong> {{userService.getProfileCurrentUser().email}}<br />
+       
+
+        </p>
+       
+      </div>
