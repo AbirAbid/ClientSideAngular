@@ -6,7 +6,7 @@
                               <div class="row">
                                  <div class="col-sm-12">
                                       <p></p><br>
-                                    <h4 class="page-title">Affecter une tâche</h4>
+                                    <h4 class="page-title">Affect  task</h4>
                                  </div>
                               </div>
                            </div>
@@ -22,7 +22,7 @@
     <form class="form-vertical" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="container">
         <div class="form-group">
-            <label for="descrip">Titre de la tâche </label>
+            <label for="descrip">Task title </label>
            <input type="text" 
                   class="form-control" 
                   name="title" 
@@ -32,33 +32,33 @@
         </div>
 
         <div class="form-group">
-          <label for="role">Filter par  Role</label>
+          <label for="role">Filter by Role</label>
 
          <select  class="form-control" 
                   name="role" 
                   [(ngModel)]="roleUser"
                   (change)="getUserWithRole()">
-              <option value="" selected="true" disabled="true">Choisir le role </option>
-              <option  value="ROLE_INGENIEUR"> Ingenieur </option>
-              <option  value="ROLE_TECHNICIEN"> Technicien </option>
+              <option value="" selected="true" disabled="true">Choose the role </option>
+              <option  value="ROLE_INGENIEUR"> Engineer </option>
+              <option  value="ROLE_TECHNICIEN"> Technician </option>
           </select>  
         </div>
 
         <div class="form-group">
-         <label for="user">Employé</label>
+         <label for="user">Employee</label>
          <select    #user="ngModel"  name="user"  class="form-control"  [(ngModel)]="taskAffect.user" required>
-            <option value="" selected="true" disabled="true">Choisir l'employé </option>
-            <option  *ngFor="let user of getUserWithRole()" [ngValue]="user" >id :{{user.id}} - Nom :{{user.name}}
+            <option value="" selected="true" disabled="true">Choose the employee </option>
+            <option  *ngFor="let user of getUserWithRole()" [ngValue]="user" >id :{{user.id}} - Name :{{user.name}}
            </option>
            
          </select>
          <div *ngIf="f.submitted && user.errors.required " >
-               <div  class="alert alert-danger"> Employé est non selectioné </div>
+               <div  class="alert alert-danger"> Employee is not selected</div>
              
            </div>
         </div>
       
-       <button type="submit" class="btn btn-info">Affecter</button>
+       <button type="submit" class="btn btn-info">Affect</button>
       </div>
     </form>
 </div>

@@ -10,22 +10,22 @@
       <ul class="navbar-nav mr-auto">
     
         <li class="nav-item">
-          <a class="nav-link" routerLink="home">Accueil</a>
+          <a class="nav-link" routerLink="home">Home</a>
         </li>
         
 
             <li *ngIf="userService.getRoleUser() === 'ROLE_MANAGER'" class="nav-item">
-              <a routerLink="tasks" class="nav-link" routerLinkActive="active">Liste des tâches</a>
+              <a routerLink="tasks" class="nav-link" routerLinkActive="active">Task list</a>
             </li>
             <li *ngIf="userService.getRoleUser() === 'ROLE_MANAGER'" class="nav-item">
-                <a routerLink="users" class="nav-link" routerLinkActive="active">Liste des utilisateurs </a>
+                <a routerLink="users" class="nav-link" routerLinkActive="active">User list </a>
               </li>
          
             <li *ngIf="userService.getRoleUser() === 'ROLE_INGENIEUR' " class="nav-item">
-                <a routerLink="taskuser" class="nav-link" routerLinkActive="active">Mes tâches</a>
+                <a routerLink="taskuser" class="nav-link" routerLinkActive="active">My tasks</a>
             </li>
             <li *ngIf="userService.getRoleUser() === 'ROLE_TECHNICIEN'" class="nav-item">
-              <a routerLink="taskuser" class="nav-link" routerLinkActive="active">Mes tâches</a>
+              <a routerLink="taskuser" class="nav-link" routerLinkActive="active">My tasks</a>
           </li>
     
             <li  class="nav-item">
@@ -35,13 +35,13 @@
       
      <ul class="navbar-nav ml-auto"   *ngIf="userService.isAuthenticated()">
         <li *ngIf="userService.getRoleUser() === 'ROLE_MANAGER'" class="nav-item">
-            <p  class="nav-link" >Compte Manager</p>
+            <p  class="nav-link" >Manager account</p>
           </li>
           <li *ngIf="userService.getRoleUser() === 'ROLE_INGENIEUR'" class="nav-item">
-              <p  class="nav-link" >Compte Ingénieur</p>
+              <p  class="nav-link" >Engineer account</p>
             </li>
             <li *ngIf="userService.getRoleUser() === 'ROLE_TECHNICIEN'" class="nav-item">
-                <p  class="nav-link" >Compte Technicien</p>
+                <p  class="nav-link" >Technician Account</p>
               </li>
           <li class="nav-item dropdown" ngbDropdown>
               <a class="nav-link dropdown-toggle pointer " 
@@ -57,11 +57,11 @@
                 </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" ngbDropdownMenu>
                 <a class="dropdown-item" routerLink="/account">
-                  <i class="fas fa-user"></i> Mon compte
+                  <i class="fas fa-user"></i> My account
                 </a>
            
                 <div class="dropdown-divider"></div>
-                <a  class="dropdown-item pointer" (click)="logout()" ><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                <a  class="dropdown-item pointer" (click)="logout()" ><i class="fas fa-sign-out-alt"></i> Logout</a>
               </div>
             </li>
 

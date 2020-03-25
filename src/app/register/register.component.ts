@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 
-import { User } from '../models/user';
-import { UserService } from '../services/user.service';
+import {User} from '../models/user';
+import {UserService} from '../services/user.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,21 +17,24 @@ export class RegisterComponent implements OnInit {
   errorMessage = '';
   passwordconfirm: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+  }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   onSubmit() {
     this.user = this.form;
     this.userService.signUp(this.user).subscribe(
       data => {
         this.isSignedUp = true;
-        this.isSignUpFailed = false;},
+        this.isSignUpFailed = false;
+      },
       error => {
         this.errorMessage = error.error.message;
         this.isSignUpFailed = true;
       }
     );
   }
-  
+
 }

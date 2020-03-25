@@ -2,7 +2,7 @@
 
 <div class="panel panel-primary ">
         <div class="panel-heading">
-            <h1>Liste des employés </h1>
+            <h1>List of employees </h1>
         </div>
      
     </div> <br>
@@ -12,8 +12,8 @@
 
               <tr>
                 <th>ID</th>
-                <th> Nom </th>
-                <th>Nom d'utilisateur </th>
+                <th> Name </th>
+                <th>Username </th>
                 <th>Email</th>
                 <th>Role</th>
                 <th>Actions</th>
@@ -34,11 +34,11 @@
                 <td>{{user.roles[0].name}}</td>
                 <th>
                     <label  class="switch">
-                        <button (click)="detailUser(user.id)"  title="Détail" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-info-square"></i></button>
+                        <button (click)="detailUser(user.id)"  title="Detail" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-info-square"></i></button>
                       </label>
                      
                 <label  *ngIf="user.roles[0].name === 'ROLE_INGENIEUR'" class="switch">
-                  <button (click)="updateUser(user.id)"  title="Modifier titre" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-edit"></i></button>
+                  <button (click)="updateUser(user.id)"  title="Update title" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-edit"></i></button>
                 </label>
               </th>
                 

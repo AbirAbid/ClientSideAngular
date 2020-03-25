@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
- 
-  baseUrlAuth: 'http://localhost:8080/api/test/'  ,
+
+  baseUrlAuth: 'http://localhost:8080/api/test/',
   loginUrl: 'http://localhost:8080/api/auth/',
-  urlTasks:  'http://localhost:8080/tasks',
-  baseUrl :'http://localhost:8080/'
+  urlTasks: 'http://localhost:8080/tasks',
+  baseUrl: 'http://localhost:8080/'
 };
 
 /*

@@ -48,6 +48,11 @@ getTasksManger(){
    { listTaskDisplay.push(this.listTaskFor[index]) ;}} 
      return listTaskDisplay ;
    }
+
+
+
+
+   
 public openConfirmationDialog(id: number) {
     this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to delete ?')
     .then((confirmed) => {

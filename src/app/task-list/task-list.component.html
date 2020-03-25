@@ -1,28 +1,28 @@
 <div class="panel panel-primary ">
         <div class="panel-heading">
        <p></p><br>
-            <h1>Liste des tâches</h1>
+            <h1>Task list</h1>
         </div>
     
         <div class="col col-xs-6 text-right">
-               <button type="button" class="btn btn-sm btn-info" (click)="addTask()"><i class="fas fa-plus"></i> Nouvelle tâche </button>
+               <button type="button" class="btn btn-sm btn-info" (click)="addTask()"><i class="fas fa-plus"></i> New Task </button>
              </div>
         </div> <br>
                   
             <div class="panel-body">
               <div *ngIf="listTasktoDisplay.length== 0" class="alert alert-info">
-                Table des tâches  vide !!!
+                Empty task table !!
               </div>
             <table *ngIf="listTasktoDisplay.length > 0"  class="table table-striped table-bordered table-list" style="margin-bottom: 50px;">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Titre </th>
-                <th>Date début</th>
-                <th> Date fin </th>
+                <th>Title </th>
+                <th>Start date</th>
+                <th> End date </th>
                 <th> Etat </th>
-                <th> Satut </th>
-                <th>Actions</th>
+                <th> Status </th>
+                <th>State</th>
               </tr>
             </thead>
            <tbody>
@@ -42,9 +42,9 @@
                         title="Affecter">
                         <i class="fas fa-hourglass-start"></i>
                   </button>
-                  <button (click)="updateTask(task.id)"  title="Modifier" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-edit"></i></button>
-                  <button (click)="detailTask(task.id)"class="btn btn-info" title="Détail" style="margin-left: 10px"><i class="fas fa-info-square"></i></button> 
-                  <button (click)="openConfirmationDialog(task.id)" title="Supprimer" [disabled]="task.affected==true"
+                  <button (click)="updateTask(task.id)"  title="Update" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-edit"></i></button>
+                  <button (click)="detailTask(task.id)"class="btn btn-info" title="Detail" style="margin-left: 10px"><i class="fas fa-info-square"></i></button> 
+                  <button (click)="openConfirmationDialog(task.id)" title="Delete" [disabled]="task.affected==true"
                   
                   class="btn btn-danger" style="margin-left: 10px"> <i class="fas fa-trash-alt"></i></button>
                 </td>

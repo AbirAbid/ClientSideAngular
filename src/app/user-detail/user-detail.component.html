@@ -1,6 +1,6 @@
 
 <p></p><br>
-<h2> Détail </h2> 
+<h2> Detail </h2> 
 
 <hr/>
 <div *ngIf="user"   class="container">
@@ -8,10 +8,10 @@
     <label><b> ID : </b></label> {{user.id}}
   </div>
   <div>
-    <label><b> Nom: </b></label> {{user.name}}
+    <label><b> Name: </b></label> {{user.name}}
   </div>
   <div>
-    <label><b> Nom d'utilisateur: </b></label> {{user.username}}
+    <label><b> Username: </b></label> {{user.username}}
   </div>
   <div>
     <label><b>Email: </b></label> {{user.email}}
@@ -26,7 +26,7 @@
 
   <div    class="panel panel-primary ">
         <div class="panel-heading">
-            <h4>Liste des tâches affectées </h4>
+            <h4>List of affected tasks </h4>
         </div>
      
     </div> <br>
@@ -34,7 +34,7 @@
  
    <div *ngIf="listTasktoDisplay.length === 0" class="alert alert-info">
         
-        Il n'existe pas  des tâches affectées à {{user.name}} !!
+    There are no tasks affected to  : {{user.name}} !!
     </div>
 
   <!--  <div *ngIf="listTasktoDisplay.length === 0" class="spinner-border text-info" role="status">
@@ -47,10 +47,10 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Titre </th>
-                <th>Date début</th>
-                <th> Date fin </th>
-                <th> Etat </th>
+                <th>Title </th>
+                <th>Start date</th>
+                <th>End date </th>
+                <th> State </th>
                 <th> Manager </th>
               
               </tr>

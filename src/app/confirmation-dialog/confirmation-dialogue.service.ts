@@ -1,8 +1,5 @@
 import { Injectable, Input } from '@angular/core';
-import { Observable } from 'rxjs';
- 
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { ConfirmationDialogComponent } from './confirmation-dialog.component';
 
 
